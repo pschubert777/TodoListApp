@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{6D33D4F0-AADC-4EE4-963A-35F21FBC0636}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataExtensions/ModelBuilderDataExtensions.cs">
+    <Files>
+      <File FileName="DataExtensions/ModelBuilderDataExtensions.cs" Line="16" Column="27" />
+      <File FileName="Migrations/TodoListDbContextModelSnapshot.cs" Line="1" Column="1" />
+      <File FileName="Migrations/20230505024745_InitialCreate.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TodoListApp" expanded="True" selected="True">
+            <Node name="TodoListApp" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="DataExtensions" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Pages" expanded="True" />
+              <Node name="Shared" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.TodoListApp PreferredExecutionTarget="/Applications/Brave Browser.app" />
+</Properties>

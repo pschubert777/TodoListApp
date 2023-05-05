@@ -1,0 +1,64 @@
+﻿@page "/fetchdata"
+@using TodoListApp.Data
+@using Microsoft.EntityFrameworkCore
+@inject TodoListDbContext context
+
+
+<PageTitle>Todos </PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Todos before the weekend</MudText>
+<MudText Class="mb-8">This component demonstrates how not to procrastinate your todos</MudText>
+
+<MudTable Items="_todos" Hover="true" SortLabel="Sort By" Elevation="0">
+    <HeaderContent>
+        <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<TodoData, object>(x=>x.Name)">Name</MudTableSortLabel></MudTh>
+        <MudTh>Description</MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<TodoData, object>(x=>x.DueDate)"> Due Date </MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<TodoData, object>(x=>x.IsCompleted)"> Completed</MudTableSortLabel></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd> @context.Name </MudTd>
+        <MudTd> @context.Description </MudTd>
+        <MudTd>
+             @if (context.DueDate.HasValue)
+              {
+                    @context.DueDate.Value.ToString("MM/dd/yyyy")
+              }
+             else
+             {
+                @("N/A")
+             }
+        </MudTd>
+        <MudTd>
+            <MudCheckBox Checked="context.IsCompleted" />
+        </MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+    </PagerContent>
+</MudTable>
+<div class="d-flex flex-row justify-end">
+    <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" />
+</div>
+
+
+@code {
+
+    private IEnumerable<TodoData> _todos = new List<TodoData>();
+    private bool _loading { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        await GetTodos();
+
+        _loading = false;
+    }
+
+    private async Task GetTodos()
+    {
+        _todos = await context.Todos.ToListAsync();
+
+    }
+}
